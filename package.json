@@ -1,0 +1,19 @@
+{
+  "name": "support-desk",
+  "version": "1.0.0",
+  "description": "Support ticket app",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node backend/server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tgulfan/support-desk.git"
+  },
+  "author": "Timothy Gulfan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tgulfan/support-desk/issues"
+  },
+  "homepage": "https://github.com/tgulfan/support-desk#readme"
+}
