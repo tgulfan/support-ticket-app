@@ -1,6 +1,8 @@
 const asyncHandler = require('express-async-handler');
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+
+const generateToken = require('../../utils/generate-token');
+const User = require('../../models/user');
 
 // Get logged in user data route
 // /api/users/me
@@ -75,10 +77,6 @@ const registerUser = asyncHandler(async (req, res) => {
     throw new error('Invalid user data');
   }
 });
-
-const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '30d' });
-};
 
 module.exports = {
   getMe,
