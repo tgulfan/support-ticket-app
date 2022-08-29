@@ -2,7 +2,17 @@ const asyncHandler = require('express-async-handler');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-const User = require('../../models/user');
+// Get logged in user data route
+// /api/users/me
+const getMe = asyncHandler(async (req, res) => {
+  const { _id, email, name } = req.user;
+  const user = {
+    id: _id,
+    email,
+    name,
+  };
+  res.status(200).json(user);
+});
 
 // Login user route
 // /api/users/login
@@ -71,6 +81,7 @@ const generateToken = (id) => {
 };
 
 module.exports = {
+  getMe,
   loginUser,
   registerUser,
 };
