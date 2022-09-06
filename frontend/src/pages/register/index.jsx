@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { register, reset } from '../../features/auth/authSlice';
+import Spinner from '../../components/spinner';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -34,7 +35,7 @@ const Register = () => {
     }
 
     dispatch(reset());
-  }, [isError, isSuccess, user, navigate, dispatch]);
+  }, [isError, isSuccess, message, user, navigate, dispatch]);
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -58,7 +59,9 @@ const Register = () => {
     }
   };
 
-  return (
+  return isLoading ? (
+    <Spinner />
+  ) : (
     <>
       <section className='heading'>
         <h1>
