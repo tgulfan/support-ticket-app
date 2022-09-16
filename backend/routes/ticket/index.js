@@ -1,5 +1,4 @@
 const express = require('express');
-const { createTicket } = require('../../controllers/ticket');
 const router = express.Router();
 
 const { createTickets, getTickets } = require('../../controllers/ticket');
